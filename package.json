@@ -1,0 +1,36 @@
+{
+  "name": "book_notes",
+  "version": "1.0.0",
+  "description": "App for keeping track of read books, with notes, rating etc.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nielsenchristoffer93/book_notes.git"
+  },
+  "keywords": [
+    "books",
+    "reads",
+    "notes",
+    "ratings",
+    "ejs",
+    "express.js",
+    "postgres"
+  ],
+  "author": "Christoffer Nielsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nielsenchristoffer93/book_notes/issues"
+  },
+  "homepage": "https://github.com/nielsenchristoffer93/book_notes#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.19.1",
+    "nodemon": "^3.1.0",
+    "pg": "^8.11.3"
+  }
+}
