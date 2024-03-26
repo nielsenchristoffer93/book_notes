@@ -1,1 +1,70 @@
-<h1>Hello</h1>
+<%- include("partials/header.ejs") %>
+    <div class="row">
+        <div class="flex-container">
+            <header>
+                <h1><a href="">Christoffer Nielsen</a></h1>
+                <h2>Books I've read</h2>
+                <p>Concise yet comprehensive notes for each book. Utilize the ISBN number to locate it at your local
+                    library
+                    or any other source. This page will continually evolve as I delve into more books, so consider
+                    bookmarking it for future reference.</p>
+                <hr>
+                <div class="flex-inline">
+                    <form id="search-form" action="/search" method="get">
+                        <input name="search_string" type="text" id="search-input" placeholder="Search...">
+                        <button type="submit"><i class='bx bx-search-alt'></i></button>
+                    </form>
+                    <form id="sort-form" action="/sort" method="get">
+                        <label for="sort-by__select">Sort by</label>
+                        <select name="sort_by" id="sort-by__select">
+                            <option value="title">Title</option>
+                            <option value="rating">Rating</option>
+                            <option value="date_read">Date Read</option>
+                        </select>
+                    </form>
+                </div>
+                <hr>
+            </header>
+            <% books.forEach(book=> { %>
+                <div class="flex-inline">
+                    <div class="book-cover">
+                        <img src="<%= book.image_url %>" alt="">
+                    </div>
+                    <div class="book-notes">
+                        <h2><a href="/book/<%= book.id %>">
+                                <%= book.title %>
+                            </a></h2>
+                        <h3>Author: <a href="">
+                                <%= book.author_name %>
+                            </a></h3>
+                        <div class="flex-inline">
+                            <small>Date read: <%= book.date_read %></small>
+                            <div class="flex-inline rating">
+                                <small>Personal rating: </small>
+                                <% for( let index=0; index < 10; index++ ) { %>
+                                    <% if (index>= book.rating) { %>
+                                        <div class="star"><i class='bx bx-star'></i></div>
+                                        <% } else { %>
+                                            <div class="star"><i class='bx bxs-star'></i></div>
+                                            <% } %>
+                                                <% } %>
+                            </div>
+                        </div>
+                        <hr>
+                        <p>
+                            <%= book.summary %>
+                        </p>
+                        <div class="flex-inline book-notes__anchor">
+                            <a href="/book/<%= book.id %>">
+                                &#8250; Read my personal notes
+                            </a>
+                        </div>
+                        <small class="book-notes__amazon-anchor">or go to the <a
+                                href="https://www.amazon.com/s?k=<%= book.isbn %>&crid=20ROVFOXW5UUE&sprefix=<%= book.isbn %>%2Caps%2C239&ref=nb_sb_noss_1"
+                                target="_blank">Amazon page</a> for details and reviews.</small>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs") %>

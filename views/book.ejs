@@ -1,0 +1,47 @@
+<%- include("partials/header.ejs") %>
+    <div class="row">
+        <div class="flex-container">
+            <div class="flex-inline">
+                <div class="book-cover">
+                    <img src="<%= book.image_url %>" alt="">
+                </div>
+                <div class="book-notes">
+                    <h2><a href="/book/<%= book.id %>">
+                            <%= book.title %>
+                        </a></h2>
+                    <h3>Author: <a href="">
+                            <%= book.author_name %>
+                        </a></h3>
+                    <small>ISBN: <%= book.isbn %></small>
+                    <div class="flex-inline">
+                        <small>Date read: <%= book.date_read %></small>
+                        <div class="flex-inline rating">
+                            <small>Personal rating: </small>
+                            <% for( let index=0; index < 10; index++ ) { %>
+                                <% if (index>= book.rating) { %>
+                                    <div class="star"><i class='bx bx-star'></i></div>
+                                    <% } else { %>
+                                        <div class="star"><i class='bx bxs-star'></i></div>
+                                        <% } %>
+                                            <% } %>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>
+                        <%= book.summary %>
+                    </p>
+                    <small class="book-notes__amazon-anchor">Visit the <a
+                            href="https://www.amazon.com/s?k=<%= book.isbn %>&crid=20ROVFOXW5UUE&sprefix=<%= book.isbn %>%2Caps%2C239&ref=nb_sb_noss_1"
+                            target="_blank">Amazon page</a> for details and reviews.</small>
+                </div>
+            </div>
+            <div class="book-notes__notes">
+                <h2>My Notes</h2>
+                <hr>
+                <p>
+                    <%= book.notes %>
+                </p>
+            </div>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs") %>

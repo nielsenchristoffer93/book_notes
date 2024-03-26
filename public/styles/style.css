@@ -1,0 +1,284 @@
+/*=================================
+ROOT
+=================================*/
+
+:root {
+  /** CSS DARK THEME PRIMARY COLORS */
+  --color-primary-100:  #572780;
+  --color-primary-100-rgb:  34, 15, 50;
+  --color-primary-200:  #692f9a;
+  --color-primary-300:  #7a37b4;
+  --color-primary-400:  #8c46c7;
+  --color-primary-500:  #9c60cf;
+  --color-primary-600:  #ac7ad7;
+
+  /** CSS DARK THEME SURFACE COLORS */
+  --color-surface-100:  #121212;
+  --color-surface-200:  #282828;
+  --color-surface-300:  #3f3f3f;
+  --color-surface-400:  #575757;
+  --color-surface-500:  #717171;
+  --color-surface-600:  #8b8b8b;
+
+  /* CSS DARK THEME FONT COLORS */
+  --color-font-primary: #ffffff;
+  --color-font-primary-rgb: 255, 255, 255;
+  --color-font-secondary: #eeeeee;
+  --color-font-tertiary: #dddddd;
+}
+
+/*=================================
+BASIC SETUP
+=================================*/
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  background-color: var(--color-surface-100);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
+  font-size: 12px;
+}
+
+/* ----------------------------------------------- */
+/* ------------- REUSABLE COMPONENTS ------------- */
+/* ----------------------------------------------- */
+
+.row {
+  margin: 2rem 20%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.flex-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+/*.flex-container > .flex-inline:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.flex-container > .flex-inline:nth-child(even) {
+    flex-direction: row;
+}*/
+
+/* ------------------- HEADINGS ------------------ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--color-font-primary);
+}
+
+h1 {
+  font-size: 5rem;
+  margin-top: 2rem;
+}
+
+h1 > a {
+  font-size: inherit;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+/* ------------------- PARAGRAPHS ----------------- */
+
+p {
+  font-family: "Inconsolata", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: var(--color-font-primary);
+}
+
+small {
+  font-family: "Inconsolata", monospace;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: var(--color-font-secondary);
+}
+
+/* ------------------- BUTTONS ----------------- */
+
+button {
+  height: 3rem;
+  width: 3rem;
+  background-color: var(--color-primary-100);
+  border: 0;
+}
+
+button i {
+  color: var(--color-font-primary);
+}
+
+/* ------------------- ICONS ----------------- */
+
+i {
+  font-size: 2rem;
+}
+
+/* ------------------- ANCHORS ----------------- */
+
+a:link,
+a:visited {
+  color: var(--color-primary-600);
+}
+
+/* ----------------------------------------------- */
+/* ------------------- HEADER -------------------- */
+/* ----------------------------------------------- */
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+header h1,
+header h2 {
+  text-transform: uppercase;
+}
+
+header h2 {
+  color: var(--color-primary-100);
+}
+
+header .flex-inline {
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+#search-form,
+#sort-form {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  color: var(--color-font-primary);
+}
+
+#search-form {
+  width: 100%;
+}
+
+#search-form input[type="text"] {
+  width: 100%;
+  height: 3rem;
+  font-size: 1.4rem;
+  padding: .4rem;
+  color: var(--color-font-primary);
+  background-color: var(--color-surface-400);
+  border: 0;
+}
+
+::placeholder {
+  color: var(--color-font-primary);
+}
+
+#sort-form {
+  justify-content: flex-end;
+  gap: .5rem;
+}
+
+#sort-form label {
+  white-space: nowrap;
+  font-size: 1.4rem;
+}
+
+#sort-form select {
+  font-size: 1.4rem;
+  padding: .4rem;
+  color: var(--color-font-primary);
+  background-color: var(--color-surface-400);
+  border: 0;
+}
+
+/* ----------------------------------------------- */
+/* ----------------- BOOK NOTES ------------------ */
+/* ----------------------------------------------- */
+
+.book-cover img {
+  max-width: 18rem;
+}
+
+.book-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.book-notes h2 {
+  font-size: 3rem;
+}
+
+.book-notes h2 > a {
+  font-size: inherit;
+}
+
+.book-notes h3 {
+  font-size: 1.6rem;
+}
+
+.book-notes h3 > a {
+  font-size: inherit;
+}
+
+.rating {
+  gap: 0.1rem;
+  align-items: center;
+}
+
+.star {
+  color: gold;
+}
+
+.star i {
+  font-size: 1rem;
+}
+
+.book-notes__anchor a {
+  font-size: 1.6rem;
+}
+
+.book-notes__anchor i {
+  font-size: 1.5rem;
+}
+
+.book-notes__anchor a {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.book-notes__notes {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.book-notes__notes p {
+  white-space: pre-wrap;
+}
+
